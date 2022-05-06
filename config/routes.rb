@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root "tweet#index"
   resources :comments
   resources :tweets
   resources :users
