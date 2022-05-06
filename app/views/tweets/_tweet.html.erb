@@ -1,17 +1,50 @@
-<div id="<%= dom_id tweet %>">
-  <p>
-    <strong>Body:</strong>
-    <%= tweet.body %>
-  </p>
-
-  <p>
-    <strong>Comments count:</strong>
-    <%= tweet.comments_count %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= tweet.user_id %>
-  </p>
-
+<div id="<%= dom_id tweet %>" class="tweet--card--container">
+    <div class="avatar--container">
+      <% if tweet.user.avatar.attached? %>
+        <%= image_tag tweet.user.avatar, alt: "Tweet avatar", class: "avatar" %>
+      <% end %>
+    </div>
+    <div>
+      <div class="tweet--content">
+        <div class="header--tweet">
+          <h4 class="username--title">
+            <%= tweet.user.name %>
+          </h4>
+          <p class="text-sm">
+            <%= link_to user_path(tweet.user), class: "username", class: 'link_to' do %>
+              @<%= tweet.user.username %>
+            <% end %>
+          </p>
+        </div>
+        <div style="text-overflow: ellipsis">
+          <%= link_to tweet.body, tweet, class: 'text-sm tweet--body' %>
+        </div>
+      </div>
+      <footer class="tweet--footer">
+        <div class="comment--container">
+          <div class="comment--button">
+            <%= link_to tweet_path(tweet) do%>
+              <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10.0002 0.25C4.47671 0.25 0.000151101 3.88672 0.000151101 8.375C0.000151101 10.2344 0.777495 11.9375 2.06656 13.3086C1.48453 14.8477 0.273589 16.1523 0.254057 16.168C-0.00375515 16.4414 -0.0740676 16.8398 0.0743698 17.1836C0.222807 17.5273 0.562651 17.75 0.937651 17.75C3.33999 17.75 5.23453 16.7461 6.37125 15.9414C7.50015 16.2969 8.7189 16.5 10.0002 16.5C15.5236 16.5 20.0002 12.8633 20.0002 8.375C20.0002 3.88672 15.5236 0.25 10.0002 0.25ZM10.0002 14.625C8.95718 14.625 7.92593 14.4648 6.93765 14.1523L6.05093 13.8711L5.28921 14.4102C4.73062 14.8047 3.96499 15.2461 3.04312 15.543C3.32828 15.0703 3.60562 14.5391 3.82046 13.9727L4.23453 12.875L3.42984 12.0234C2.72281 11.2695 1.87515 10.0234 1.87515 8.375C1.87515 4.92969 5.51968 2.125 10.0002 2.125C14.4806 2.125 18.1252 4.92969 18.1252 8.375C18.1252 11.8203 14.4806 14.625 10.0002 14.625Z" fill="#0F1419"/>
+              </svg>
+            <% end %>
+          </div>
+          <p><%= tweet.comments_count %></p>
+        </div>
+        <% if tweet.user == current_user %>
+          <div>
+            <div class="comment--button">
+              
+            </div>
+            <div class="comment--button">
+              <%= link_to edit_tweet_path(tweet) do%>
+                <svg width="23" height="20" viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M16.2148 13.4736L17.4648 12.2236C17.6602 12.0283 18 12.165 18 12.4463V18.126C18 19.1611 17.1602 20.001 16.125 20.001H2.375C1.33984 20.001 0.5 19.1611 0.5 18.126V4.37598C0.5 3.34082 1.33984 2.50098 2.375 2.50098H13.0586C13.3359 2.50098 13.4766 2.83691 13.2812 3.03613L12.0312 4.28613C11.9727 4.34473 11.8945 4.37598 11.8086 4.37598H2.375V18.126H16.125V13.6924C16.125 13.6104 16.1562 13.5322 16.2148 13.4736ZM22.332 5.59082L12.0742 15.8486L8.54297 16.2393C7.51953 16.3525 6.64844 15.4893 6.76172 14.458L7.15234 10.9268L17.4102 0.668945C18.3047 -0.225586 19.75 -0.225586 20.6406 0.668945L22.3281 2.35645C23.2227 3.25098 23.2227 4.7002 22.332 5.59082ZM18.4727 6.79785L16.2031 4.52832L8.94531 11.79L8.66016 14.3408L11.2109 14.0557L18.4727 6.79785ZM21.0039 3.68457L19.3164 1.99707C19.1562 1.83691 18.8945 1.83691 18.7383 1.99707L17.5312 3.2041L19.8008 5.47363L21.0078 4.2666C21.1641 4.10254 21.1641 3.84473 21.0039 3.68457Z" fill="#0F1419"/>
+                </svg>
+              <% end %>
+          </div>
+          </div>
+        <% end %>
+      </footer>
+    </div>
 </div>

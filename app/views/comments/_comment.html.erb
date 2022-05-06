@@ -1,17 +1,25 @@
 <div id="<%= dom_id comment %>">
-  <p>
-    <strong>User:</strong>
-    <%= comment.user_id %>
-  </p>
-
-  <p>
-    <strong>Tweet:</strong>
-    <%= comment.tweet_id %>
-  </p>
-
-  <p>
-    <strong>Body:</strong>
-    <%= comment.body %>
-  </p>
+  <div>
+      <% #Avatar %>
+    </div>
+    <div>
+      <div>
+        <div>
+          <h4 class="heading--xs">
+            <%= comment.user.name %>
+          </h4>
+          <%= link_to user_path(comment.user), class: "username" do %>
+            <p class="user--profile">
+              @<%= comment.user.username %>
+            </p>
+          <% end %>
+        </div>
+        <div>
+          <p><%= comment.body %></p>
+        </div>
+      </div>
+      <footer>
+      </footer>
+    </div>
 
 </div>

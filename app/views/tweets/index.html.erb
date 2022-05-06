@@ -1,14 +1,31 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Tweets</h1>
-
-<div id="tweets">
-  <% @tweets.each do |tweet| %>
-    <%= render tweet %>
-    <p>
-      <%= link_to "Show this tweet", tweet %>
-    </p>
+<section class="main--section">
+  <% if user_signed_in? %>
+    <div class="text__area--container">
+      <div>
+        <% if current_user.avatar.attached? %>
+          <%= image_tag current_user.avatar, alt: "Tweet avatar" %>
+        <% end %>
+      </div>
+      <div class="tweet--creation">
+        <%= form_with(model: @tweet) do |form| %>
+          <% if user_signed_in? %>
+            <%= form.hidden_field :user_id, value: current_user.id %>
+          <% end %>
+          <div>
+            <%= form.text_area :body, placeholder: "Remenber to think before write...", class: 'text--area' %>
+          </div>
+          <div class="tweet--button">
+            <%= form.submit "Tweet"%>
+          </div>
+        <% end %>
+      </div>
+    </div>
   <% end %>
-</div>
-
-<%= link_to "New tweet", new_tweet_path %>
+  <div id="tweets">
+    <% @tweets.each do |tweet| %>
+      <%= render tweet %>
+    <% end %>
+  </div>
+</section>

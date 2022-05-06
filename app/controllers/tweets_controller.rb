@@ -1,32 +1,33 @@
 class TweetsController < ApplicationController
-  before_action :set_tweet, only: %i[ show edit update destroy ]
+  before_action :set_tweet, only: %i[show edit update destroy]
 
   # GET /tweets
   def index
-    @tweets = Tweet.all
+    @tweets = Tweet.all.order(created_at: :asc)
+    @tweet = Tweet.new
   end
 
   # GET /tweets/1
   def show
+    @comment = Comment.new
+    @comments = Comment.where(tweet_id: params[:id])
   end
 
   # GET /tweets/new
   def new
-    @tweet = Tweet.new
   end
 
   # GET /tweets/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /tweets
   def create
     @tweet = Tweet.new(tweet_params)
 
     if @tweet.save
-      redirect_to @tweet, notice: "Tweet was successfully created."
+      redirect_to root_path, notice: "Tweet was successfully created."
     else
-      render :new, status: :unprocessable_entity
+      render root_path, status: :unprocessable_entity
     end
   end
 
@@ -46,13 +47,14 @@ class TweetsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_tweet
-      @tweet = Tweet.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def tweet_params
-      params.require(:tweet).permit(:body, :comments_count, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_tweet
+    @tweet = Tweet.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def tweet_params
+    params.require(:tweet).permit(:body, :user_id)
+  end
 end

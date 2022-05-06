@@ -1,0 +1,16 @@
+.show--container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.show--tweet{
+  margin-bottom: 1.125rem;
+}
+
+hr.line{
+  border: 2px solid var(--secondary-100);
+  width: 332px;
+  margin: 0 0 1.125rem 0;
+}

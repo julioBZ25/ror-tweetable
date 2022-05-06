@@ -1,0 +1,67 @@
+#tweets{
+  display: flex;
+  flex-direction: column;
+  gap: 
+}
+
+.avatar--container{
+  width: 60px;
+  height: 100%;
+}
+
+.avatar{
+  object-fit: contain;
+}
+
+.tweet--card--container{
+  display: flex;
+  outline: 3px solid #EBEEF0;
+  background-color: white;
+  padding: 0.5rem 0.5rem;
+  gap: 0.75rem;
+}
+
+.link_to{
+  text-decoration: none;
+  color: #5B7083;
+}
+
+.header--tweet{
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+
+.username--title{
+  color: #0F1419;
+}
+
+.tweet--content{
+  margin-bottom: 0.5rem;
+}
+
+.tweet--body{
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.tweet--footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.comment--container{
+  display: flex;
+  gap: 10px;
+}
+
+.comment--button, 
+.comment--button a{
+  display: flex;
+  align-items: center;
+}

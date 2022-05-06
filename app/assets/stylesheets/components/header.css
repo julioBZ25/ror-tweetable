@@ -1,0 +1,23 @@
+.header {
+  display: flex;
+  padding: 0.5rem 0;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nav--log{
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 10px;
+}
+
+.header--title{
+  text-align: center;
+  background-color: white;
+  outline: 1px solid #EBEEF0;
+  padding: 1rem 0;
+}
+
+.title{
+  color: black;
+}

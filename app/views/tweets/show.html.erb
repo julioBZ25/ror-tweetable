@@ -1,10 +1,28 @@
 <p style="color: green"><%= notice %></p>
+<section>
+  <%= render @tweet %>
+  <div>
+    <%= link_to "Edit this tweet", edit_tweet_path(@tweet) %> |
+    <%= link_to "Back to tweets", tweets_path %>
 
-<%= render @tweet %>
+    <%= button_to "Destroy this tweet", @tweet, method: :delete %>
+  </div>
 
-<div>
-  <%= link_to "Edit this tweet", edit_tweet_path(@tweet) %> |
-  <%= link_to "Back to tweets", tweets_path %>
-
-  <%= button_to "Destroy this tweet", @tweet, method: :delete %>
-</div>
+  <div class="text__area--container">
+    <%= form_with(model: @comment) do |form| %>
+      <% if user_signed_in? %>
+        <%= form.hidden_field :user_id, value: current_user.id %>
+      <% end %>
+      <%= form.hidden_field :tweet_id, value: @tweet.id %> 
+      <div>
+        <%= form.text_area :body, placeholder: "Remenber to think before write..." %>
+      </div>
+      <%= form.submit "Comment"%>
+    <% end %>
+  </div>
+  <div>
+    <% @comments.each do |comment| %>
+      <%= render partial: "comments/comment", locals: {comment: comment} %>
+    <% end %>
+  </div>
+</section>
