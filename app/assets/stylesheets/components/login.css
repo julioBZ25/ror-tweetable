@@ -1,0 +1,43 @@
+.session--section{
+  background-color: white;
+}
+
+.session--container form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 26px 0 16px 0;
+}
+
+.signup--button{
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+.input--session{
+  border: none;
+  width: 100%; 
+  box-sizing: border-box;
+  outline: 1px solid #5B7083;
+  border-radius: 8px;
+}
+
+.input--session:focus{
+  outline: 1px solid #5B7083;
+  border-radius: 8px;
+  outline-offset: 0;
+  padding-left: 0.25rem;
+}
+
+.field{
+  width: 260px;
+}
+
+.field input{
+  padding-left: 1rem;
+}
+
+.field input:focus{
+  padding-left: 1rem;
+}

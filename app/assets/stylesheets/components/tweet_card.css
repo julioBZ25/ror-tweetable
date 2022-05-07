@@ -5,12 +5,13 @@
 }
 
 .avatar--container{
-  width: 60px;
+  width: 50px;
   height: 100%;
 }
 
 .avatar{
-  object-fit: contain;
+  max-width: 50px;
+  max-height: 50px;
 }
 
 .tweet--card--container{
@@ -64,4 +65,39 @@
 .comment--button a{
   display: flex;
   align-items: center;
+}
+
+.comment--footer{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+.tweet--edit form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 26px 0 16px 0;
+  gap: 0.5rem;
+}
+
+.body--edit{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.body--edit textarea{
+  width: 260px;
+  height: 160px;
+  border: none;
+  resize: none;
+  outline: 1px solid #767676;
+  border-radius: 8px;
+  padding: 0.5rem;
+}
+
+.edit--container{
+  background-color: white;
 }

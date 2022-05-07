@@ -11,9 +11,9 @@
             <%= tweet.user.name %>
           </h4>
           <p class="text-sm">
-            <%= link_to user_path(tweet.user), class: "username", class: 'link_to' do %>
+            <% # link_to user_path(tweet.user), class: "username", class: 'link_to' do %>
               @<%= tweet.user.username %>
-            <% end %>
+            <% # end %>
           </p>
         </div>
         <div style="text-overflow: ellipsis">

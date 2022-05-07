@@ -15,7 +15,9 @@ class CommentsController < ApplicationController
   end
 
   # GET /comments/1/edit
-  def edit; end
+  def edit
+    @tweet = Tweet.find(@comment.tweet_id)
+  end
 
   # POST /comments
   def create
@@ -31,8 +33,10 @@ class CommentsController < ApplicationController
 
   # PATCH/PUT /comments/1
   def update
+    @tweet = Tweet.find(@comment.tweet_id)
+
     if @comment.update(comment_params)
-      redirect_to @comment, notice: "Comment was successfully updated."
+      redirect_to @tweet, notice: "Comment was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end

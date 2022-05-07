@@ -1,28 +1,40 @@
 <p style="color: green"><%= notice %></p>
 <section>
+  <div class="header--title">
+    <h1 class="title">Tweet Detail</h1>
+  </div>
   <%= render @tweet %>
-  <div>
-    <%= link_to "Edit this tweet", edit_tweet_path(@tweet) %> |
-    <%= link_to "Back to tweets", tweets_path %>
+  
 
-    <%= button_to "Destroy this tweet", @tweet, method: :delete %>
-  </div>
-
-  <div class="text__area--container">
-    <%= form_with(model: @comment) do |form| %>
-      <% if user_signed_in? %>
-        <%= form.hidden_field :user_id, value: current_user.id %>
-      <% end %>
-      <%= form.hidden_field :tweet_id, value: @tweet.id %> 
+  <% if user_signed_in? %>
+    <div class="text__area--container">
       <div>
-        <%= form.text_area :body, placeholder: "Remenber to think before write..." %>
+        <% if current_user.avatar.attached? %>
+          <%= image_tag current_user.avatar, alt: "Tweet avatar" %>
+        <% end %>
       </div>
-      <%= form.submit "Comment"%>
-    <% end %>
-  </div>
+      <div class="tweet--creation">
+        <%= form_with(model: @comment) do |form| %>
+          <% if user_signed_in? %>
+            <%= form.hidden_field :user_id, value: current_user.id %>
+          <% end %>
+          <%= form.hidden_field :tweet_id, value: @tweet.id %> 
+          <div>
+            <%= form.text_area :body, placeholder: "Remenber to think before write...", class: 'text--area' %>
+          </div>
+          <div class="tweet--button">
+            <%= form.submit "Comment"%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
   <div>
     <% @comments.each do |comment| %>
       <%= render partial: "comments/comment", locals: {comment: comment} %>
     <% end %>
+  </div>
+  <div class="header--title">
+    <%= link_to "Back to tweets", tweets_path, class: 'link_to' %>
   </div>
 </section>

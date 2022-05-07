@@ -8,14 +8,18 @@
 .nav--log{
   display: flex;
   justify-content: flex-end;
-  padding-right: 10px;
+  padding-right: 1rem;
+  gap: 1rem;
 }
 
 .header--title{
   text-align: center;
   background-color: white;
-  outline: 1px solid #EBEEF0;
+  outline: 3px solid #EBEEF0;
   padding: 1rem 0;
+  background-color: white;
+  width: 100%;
+  margin-bottom: 3px;
 }
 
 .title{

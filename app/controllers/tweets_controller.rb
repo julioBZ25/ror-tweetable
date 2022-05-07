@@ -14,8 +14,7 @@ class TweetsController < ApplicationController
   end
 
   # GET /tweets/new
-  def new
-  end
+  def new; end
 
   # GET /tweets/1/edit
   def edit; end
@@ -33,10 +32,11 @@ class TweetsController < ApplicationController
 
   # PATCH/PUT /tweets/1
   def update
+
     if @tweet.update(tweet_params)
       redirect_to @tweet, notice: "Tweet was successfully updated."
     else
-      render :edit, status: :unprocessable_entity
+      render @tweet, status: :unprocessable_entity
     end
   end
 

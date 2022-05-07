@@ -1,10 +1,15 @@
-<h1>Editing tweet</h1>
 
-<%= render "form", tweet: @tweet %>
+<section>
+  <div class="header--title">
+    <h1 class="title">Edit Tweet</h1>
+  </div>
 
-<br>
+  <div class="edit--container">
+    <%= render "form", tweet: @tweet %>
+  </div>
+  <br>
 
-<div>
-  <%= link_to "Show this tweet", @tweet %> |
-  <%= link_to "Back to tweets", tweets_path %>
-</div>
+  <div class="header--title">
+    <%= link_to "Back to tweets", tweets_path, class: 'link_to' %>
+  </div>
+</section>
