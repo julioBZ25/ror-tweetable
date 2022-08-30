@@ -1,24 +1,23 @@
-# README
+# Project: Tweetable
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Objective
 
-Things you may want to cover:
+Build the MVP of a simpler and modified version of `Twitter`
 
-* Ruby version
+![login](./public/img/tweet_login.JPG)
 
-* System dependencies
+![mainpage](./public/img/Tweet_main.JPG)
 
-* Configuration
+![tweetdetail](./public/img/tweet_details.JPG)
 
-* Database creation
+## Features:
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- **Users can create an account**
+- **Users can login to the app**
+- **Users can logout**
+- **Users can create a tweet**
+- **Users can comment a tweet**
+- **Users can mark a task as important**
+- **Only users can delete their own tweet**
+- **Everyone can see all the tweets**
+- **Everyone can see a tweet and all the its comments**
