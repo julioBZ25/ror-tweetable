@@ -4,11 +4,19 @@
 
 Build the MVP of a simpler and modified version of `Twitter`
 
-![login](./public/img/tweet_login.JPG)
+Login                       |  Main Page          
+:-------------------------:|-------------------------:
+![login](./public/img/tweet_login.JPG)  | ![mainpage](./public/img/Tweet_main.JPG)
+
+Tweet Detail               |         
+:-------------------------:|
+![login](./public/img/tweet_login.JPG)  |
+
+<!-- ![login](./public/img/tweet_login.JPG)
 
 ![mainpage](./public/img/Tweet_main.JPG)
 
-![tweetdetail](./public/img/tweet_details.JPG)
+![tweetdetail](./public/img/tweet_details.JPG) -->
 
 ## Features:
 
